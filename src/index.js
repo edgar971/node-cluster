@@ -1,5 +1,5 @@
 const cluster = require("cluster");
-const numOfProcesses = require("os").cpus().length * 5;
+const numOfProcesses = require("os").cpus().length;
 var emoji = require("node-emoji");
 require("colors");
 

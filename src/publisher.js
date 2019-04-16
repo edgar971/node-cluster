@@ -39,10 +39,10 @@ async function publishMessages(messages, sqs) {
 }
 
 async function publish(sqs) {
-  const numberOfMessages = 500;
+  const numberOfMessages = 10;
   console.log("Creating Queues".green.bold);
   await createQueues(sqs);
-  // await purgeQueue(sqs);
+  await purgeQueue(sqs);
 
   const messages = createMessages(numberOfMessages);
   console.log(`Publishing ${numberOfMessages} Messages to SQS`.cyan);

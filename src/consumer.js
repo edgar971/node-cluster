@@ -12,5 +12,6 @@ module.exports = function subscribe(handler) {
     handleMessage: handler
   });
 
+  app.on("stopped", () => console.log("stop"));
   app.start();
 };
