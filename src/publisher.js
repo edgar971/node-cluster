@@ -39,7 +39,7 @@ async function publishMessages(messages, sqs) {
 }
 
 async function publish(sqs) {
-  const numberOfMessages = 10;
+  const numberOfMessages = 100;
   console.log("Creating Queues".green.bold);
   await createQueues(sqs);
   await purgeQueue(sqs);
