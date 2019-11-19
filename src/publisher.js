@@ -9,7 +9,7 @@ function createMessages(numberOfMessages) {
   return Array.from(Array(numberOfMessages).keys()).map(i => ({
     data: "This is a test",
     id: `${i}-${new Date().getTime()}`,
-    shouldDie: false //i % 50 === 0
+    shouldDie: i % 50 === 0
   }));
 }
 

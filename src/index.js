@@ -16,19 +16,22 @@ function masterProcess() {
     `${emoji.get("coffee")} Creating ${numOfProcesses} processes`.green.bold
   );
 
+  // Log status every 3s
   setInterval(() => {
     console.log(
       `${Object.keys(cluster.workers).length} processes running`.yellow
     );
   }, 3000);
 
+  // Create the initial worker processes
   for (let i = 0; i < numOfProcesses; i++) {
     cluster.fork();
   }
 
+  // Create new worker process
   cluster.on("exit", worker => {
     console.log(
-      `Worker ${worker.process.pid} ${emoji.get("skull")} died. Restarting...`
+      `Worker ${worker.process.pid} ${emoji.get("skull")} died. Creating new one...`
         .cyan
     );
     cluster.fork();
